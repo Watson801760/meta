@@ -14,4 +14,14 @@ class Artista extends Model
     public function discos(){
         return $this-> hasMany('App\Disco', 'ArtistId');
     }
+    public function canciones(){
+
+        return $this->hasManyThrough('App\Cancion',
+                                     'App\Disco',
+                                     'ArtistId',
+                                     'AlbumId',
+                                     'ArtistId',
+                                     'AlbumId');
 }
+}
+   
